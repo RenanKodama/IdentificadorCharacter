@@ -51,7 +51,7 @@ class OCR:
 		return classified
 	
 	def svm(self, trainning_characteristics, trainning_labels, test_characteristics):
-		clf = svm.SVC(gamma=0.0001, C=100)
+		clf = svm.SVC(kernel='poly', C=0.5)		#C=1.0, kernel='rbf', degree=3, gamma='auto')	#gamma=0.0001, C=100)
 		x = trainning_characteristics
 		y = trainning_labels
 		clf.fit(x, y)
@@ -110,8 +110,8 @@ if __name__ == '__main__':
 	classifiedDTree = ocr.decision_tree(trainning_characteristics, trainning_labels, test_characteristics)
 	
 	classified = ocr.voto_majoritario(classifiedKNN, classifiedSVM, classifiedDTree)
-	matriz = ocr.buildConfusionMatrix(classified, test_labels)
-	#matriz = ocr.buildConfusionMatrix(classifiedDTree, test_labels)
+	#matriz = ocr.buildConfusionMatrix(classified, test_labels)
+	matriz = ocr.buildConfusionMatrix(classifiedSVM, test_labels)
 
 	classes = 0 
 	for i in range(25):
@@ -122,7 +122,7 @@ if __name__ == '__main__':
 
 		
 
-	accuracy = accuracy_score(test_labels, classified) * 100
-	#accuracy = accuracy_score(test_labels, classifiedDTree) * 100
+	#accuracy = accuracy_score(test_labels, classified) * 100
+	accuracy = accuracy_score(test_labels, classifiedSVM) * 100
 	
 print('Acuracia: '+ repr(accuracy) +'%\n')
