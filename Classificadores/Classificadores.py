@@ -109,9 +109,9 @@ if __name__ == '__main__':
 	classifiedSVM = ocr.svm(trainning_characteristics, trainning_labels, test_characteristics)
 	classifiedDTree = ocr.decision_tree(trainning_characteristics, trainning_labels, test_characteristics)
 	
-	#classified = ocr.voto_majoritario(classifiedKNN, classifiedSVM, classifiedDTree)
-	#matriz = ocr.buildConfusionMatrix(classified, test_labels)
-	matriz = ocr.buildConfusionMatrix(classifiedKNN, test_labels)
+	classified = ocr.voto_majoritario(classifiedKNN, classifiedSVM, classifiedDTree)
+	matriz = ocr.buildConfusionMatrix(classified, test_labels)
+	#matriz = ocr.buildConfusionMatrix(classifiedDTree, test_labels)
 
 	classes = 0 
 	for i in range(25):
@@ -122,7 +122,7 @@ if __name__ == '__main__':
 
 		
 
-	#accuracy = accuracy_score(test_labels, classified) * 100
-	accuracy = accuracy_score(test_labels, classifiedKNN) * 100
+	accuracy = accuracy_score(test_labels, classified) * 100
+	#accuracy = accuracy_score(test_labels, classifiedDTree) * 100
 	
 print('Acuracia: '+ repr(accuracy) +'%\n')

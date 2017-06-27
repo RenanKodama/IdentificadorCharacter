@@ -156,8 +156,8 @@ endfunction
  
  
 #Main{
-  arquivoTest = fopen("./Train_Test_Validation/NIST_Test_Upper_Lit.txt");
-  arquivoSaidaTest = fopen("testLit.txt","w");
+  arquivoTest = fopen("./Train_Test_Validation/NIST_Test_Upper.txt");
+  arquivoSaidaTest = fopen("test.txt","w");
   
   while ~feof(arquivoTest)
     linha = fscanf(arquivoTest,"%s",1);
