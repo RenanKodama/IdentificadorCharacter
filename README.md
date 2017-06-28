@@ -1,5 +1,6 @@
 # IdentificadorCharacter
 # Renan Kodama Rodrigues 1602098 UTFPR
+# Mateus Yonemoto Peixoto 1602055 UTFPR
 # Universidade Tecnilógica Federal do Parná
 # Ciencia da Computação - Inteligência Artificial
 
@@ -12,3 +13,4 @@ Caracteristicas extraidas:
 	porcentagem de pixels Black no SecondQuad;
 	porcentagem de pixels Black no ThirdQuad;
 	porcentagem de pixels Black no FourthQuad;
+	porcentagem de pixels dos 16 quadrantes da Imagem;
